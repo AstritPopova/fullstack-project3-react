@@ -1,22 +1,22 @@
 // Small helper file for all API calls.
-// This keeps the fetch logic in one place and makes it easy to change later.
+// Works with Project 2 backend on Render.
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// Read base URL from .env, fallback to Render backend if missing
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://fullstack-project2-uves.onrender.com/api";
 
-if (!API_BASE_URL) {
-  // This will show up in the browser console.
-  console.warn(
-    "VITE_API_BASE_URL is not set. Please add it to your .env file in the project root."
-  );
+// Just to see in console which URL is used
+console.log("API_BASE_URL in frontend:", API_BASE_URL);
+
+// Helper: build full URL for a given path, for example "/items"
+function buildUrl(path) {
+  return `${API_BASE_URL}${path}`;
 }
 
-// Helper to build full URL for a given path
-const buildUrl = (path) => {
-  if (!API_BASE_URL) return path;
-  return `${API_BASE_URL}${path}`;
-};
-
-// Read all items from the backend
+// =======================
+// GET all items
+// =======================
 export async function fetchItems() {
   const response = await fetch(buildUrl("/items"));
 
@@ -24,23 +24,33 @@ export async function fetchItems() {
     throw new Error(`GET /items failed with status ${response.status}`);
   }
 
-  // Backend returns JSON array of items: [{ id, name, done }]
   const data = await response.json();
-  return data;
+  return data; // array of { id, name, done }
 }
 
-// Create a new item
+// =======================
+// CREATE item
+// =======================
 export async function createItem(formData) {
-  // formData.title comes from ItemForm
+  // Accept both shapes: { title, description } OR { name, description }
+  const name = (formData.name ?? formData.title ?? "").toString().trim();
+  const description = (formData.description ?? "").toString().trim();
+
+  if (!name) {
+    throw new Error("Name/title is required before sending to API.");
+  }
+
+  const newItem = {
+    name,        // Project 2 backend expects "name"
+    description, // optional
+  };
+
   const response = await fetch(buildUrl("/items"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    // Backend expects { name }
-    body: JSON.stringify({
-      name: formData.title,
-    }),
+    body: JSON.stringify(newItem),
   });
 
   if (!response.ok) {
@@ -51,14 +61,20 @@ export async function createItem(formData) {
   return data;
 }
 
-// Update an existing item by id (backend uses PATCH)
+// =======================
+// UPDATE item
+// =======================
 export async function updateItem(id, updatedItem) {
+  // Make sure name is not empty if provided
+  if (updatedItem.name) {
+    updatedItem.name = updatedItem.name.toString().trim();
+  }
+
   const response = await fetch(buildUrl(`/items/${id}`), {
-    method: "PATCH", // 🔹 important: PATCH, not PUT
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    // We send name + done + any other fields we might have.
     body: JSON.stringify(updatedItem),
   });
 
@@ -70,7 +86,9 @@ export async function updateItem(id, updatedItem) {
   return data;
 }
 
-// Delete an item by id
+// =======================
+// DELETE item
+// =======================
 export async function deleteItemById(id) {
   const response = await fetch(buildUrl(`/items/${id}`), {
     method: "DELETE",
@@ -80,6 +98,5 @@ export async function deleteItemById(id) {
     throw new Error(`DELETE /items/${id} failed with status ${response.status}`);
   }
 
-  // No JSON body expected, just return true
   return true;
 }
