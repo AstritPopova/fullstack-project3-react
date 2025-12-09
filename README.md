@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 # Full Stack Project 3 – React Frontend
 
 This is my submission for the Full Stack Project 3.  
@@ -76,4 +74,4 @@ One important learning point was understanding how to handle CORS and environmen
 There were also some challenges, for example fixing CORS errors, connecting the React app to the correct Render URL, and debugging failed fetch requests. I solved these issues by checking the browser console, reading error messages carefully, and testing one change at a time. This improved my confidence in troubleshooting frontend–backend problems.
 
 Overall, I feel that I have grown in understanding how a modern full-stack application works: React on the client side and Node/Express on the server side. I am happy that I was able to deploy the project successfully and see my React frontend using my own API live on the internet. This project was very useful practice for future web development work.
->>>>>>> da3a371 (Update README for Project 3)
+```
