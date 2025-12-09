@@ -65,6 +65,7 @@ npm install
 npm run dev
 Then open the app in your browser at:
 http://localhost:5173
+```
 
 Reflection
 During this project, I learned how to build a React frontend that talks to my own backend API from Project 2. I practiced using React hooks, managing component state, handling side effects with useEffect, and updating the UI based on data coming from the server.
@@ -74,4 +75,3 @@ One important learning point was understanding how to handle CORS and environmen
 There were also some challenges, for example fixing CORS errors, connecting the React app to the correct Render URL, and debugging failed fetch requests. I solved these issues by checking the browser console, reading error messages carefully, and testing one change at a time. This improved my confidence in troubleshooting frontend–backend problems.
 
 Overall, I feel that I have grown in understanding how a modern full-stack application works: React on the client side and Node/Express on the server side. I am happy that I was able to deploy the project successfully and see my React frontend using my own API live on the internet. This project was very useful practice for future web development work.
-```
