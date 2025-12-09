@@ -67,7 +67,8 @@ Then open the app in your browser at:
 http://localhost:5173
 ```
 
-Reflection
+## Reflection
+
 During this project, I learned how to build a React frontend that talks to my own backend API from Project 2. I practiced using React hooks, managing component state, handling side effects with useEffect, and updating the UI based on data coming from the server.
 
 One important learning point was understanding how to handle CORS and environment variables in a frontend project. I used .env to store the public API base URL and configured the backend to allow requests from my React app. This helped me understand how frontend and backend need to work together when the app is deployed online.
