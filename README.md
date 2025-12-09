@@ -14,7 +14,7 @@ The goal was to build a React frontend for my existing Project 2 backend using:
 
 | Service | URL |
 |---------|-----|
-|  Live App (Render – React) | https://YOUR-FRONTEND-RENDER-URL-HERE/ |
+|  Live App (Render – React) | https://fullstack-project3-react.onrender.com/ |
 |  Backend API (Render) | https://fullstack-project2-uves.onrender.com/api/items |
 |  GitHub Repository | https://github.com/AstritPopova/fullstack-project3-react |
 |  Video link | *Add video link here* |
@@ -45,13 +45,18 @@ The goal was to build a React frontend for my existing Project 2 backend using:
 ##  Screenshots
 
 ### Items View (Localhost)
-<img width="1900" height="924" alt="Project 3 React Frontend Items View" src="PASTE-YOUR-SCREENSHOT-URL-HERE" />
+<img width="1900" height="937" alt="Screenshot 2025-12-09 231200" src="https://github.com/user-attachments/assets/7bd0b94d-9ed3-4b39-ba9b-c898cc5ee10b" />
 
-### Stats / API View
-<img width="951" height="898" alt="Project 3 React Frontend Stats or API View" src="PASTE-YOUR-SECOND-SCREENSHOT-URL-HERE" />
+### UI View (Render)
+<img width="1905" height="936" alt="Screenshot 2025-12-09 231146" src="https://github.com/user-attachments/assets/ac8d17cb-2abf-4515-a297-0a4af3ded5d3" />
+
+### API Health Check
+<img width="1919" height="719" alt="Screenshot 2025-12-09 230926" src="https://github.com/user-attachments/assets/eac580c7-cdf2-48cf-833f-7335da8f0d68" />
+
+### API Items JSON
+<img width="1906" height="663" alt="Screenshot 2025-12-09 230917" src="https://github.com/user-attachments/assets/40e1bd54-740a-4797-a4ea-92072ba344f3" />
 
 ---
-
 ##  Run Locally
 
 ```bash
