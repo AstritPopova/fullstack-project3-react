@@ -1,98 +1,109 @@
-# Full Stack Project 3 – React Frontend for Coursework App
+📌 React Frontend – Full Stack Project 3
 
-This is a simple React frontend for your **Full Stack Project 2 – Coursework App**.
+This is my submission for the Full Stack Project 3.
+The goal was to build an interactive React UI that communicates with my own Project 2 backend (REST API deployed on Render).
 
-The app talks to your existing backend on Render.  
-It loads the items from `/api/items` and lets you:
+The frontend uses modern React (hooks) and allows managing simple coursework task items.
 
-- See all coursework items in a list
-- Search and filter items
-- Mark items as done / not done
-- Add a new item
-- Edit an existing item in a small modal
-- Delete an item
-- See basic stats (how many done / not done) on a separate page
+🚀 Live Links
+Service	URL
+Frontend App (Render)	➜ Add here after you deploy
+Backend API	https://fullstack-project2-uves.onrender.com/api/items
 
-The frontend is built with:
+GitHub Repo	https://github.com/AstritPopova/fullstack-project3-react
+✨ Features
 
-- React (functional components + hooks)
-- React Router (two main views: **Items** and **Stats**)
-- Fetch API for calling your backend
-- Simple responsive CSS (no heavy UI library, easy to read)
+✔ Built using React + Vite
+✔ Fully connected to Project 2 REST API
+✔ CRUD support:
 
----
+GET → Load task items
 
-## 1. Environment variable
+POST → Add new item
 
-Create a `.env` file in the project root with this key:
+PATCH → Mark as done / update name
 
-```bash
+DELETE → Remove item
+
+✔ Search & filter items
+✔ Loading + error messages
+✔ Responsive UI (styled manually, no extra CSS frameworks)
+✔ Secure API base URL using environment variables
+✔ Deployed on Render Static Hosting
+
+🧠 Tech Stack
+Layer	Technology
+Frontend	React, Vite, JavaScript, CSS
+Backend	Node.js + Express (from Project 2)
+Deployment	Render
+Version Control	Git + GitHub
+📡 API Endpoints Used (from Project 2)
+Method	Endpoint	Description
+GET	/api/items	List items
+POST	/api/items	Create item
+PATCH	/api/items/:id	Update item (done/name)
+DELETE	/api/items/:id	Remove item
+▶️ Run Locally
+1️⃣ Clone the repository
+git clone https://github.com/AstritPopova/fullstack-project3-react
+cd fullstack-project3-react
+
+2️⃣ Environment variable for API connection
+🖥️ Windows (PowerShell)
+copy .env.example .env
+
+🍏 macOS / Linux
+cp .env.example .env
+
+
+Open .env and update the backend API URL if needed:
+
 VITE_API_BASE_URL=https://fullstack-project2-uves.onrender.com/api
-```
 
-> If your backend URL changes, just update this value.
+3️⃣ Install dependencies
+npm install
 
----
+4️⃣ Start development server
+npm run dev
 
-## 2. Run locally
 
-1. Open the folder in VS Code.
-2. Install packages:
+Then open browser:
+👉 http://localhost:5173
 
-   ```bash
-   npm install
-   ```
+The React UI will now load and communicate with the Render backend.
 
-3. Start dev server:
+🖼️ Screenshots
 
-   ```bash
-   npm run dev
-   ```
+I will update screenshots here
 
-4. Open the URL from the terminal (usually `http://localhost:5173`).
+UI (Frontend Items View)
 
-Make sure your **Project 2 backend on Render** is running and healthy.  
-The frontend expects these endpoints to exist:
+(Add screenshot here)
 
-- `GET    /api/items`
-- `POST   /api/items`
-- `PUT    /api/items/:id`
-- `DELETE /api/items/:id`
+Stats View
 
-If your field names are a bit different (for example `text` instead of `title`),
-you can adjust them in **`src/api/itemsApi.js`** and **`src/components/ItemCard.jsx`**.
+(Add screenshot here)
 
----
+Backend API call in browser
 
-## 3. Deploy to Render (Static Site)
+(Add screenshot here)
 
-1. Push this project to a new GitHub repo.
-2. In Render, choose **New → Static Site**.
-3. Select your repo.
-4. Set:
+🎥 Video Presentation
 
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-   - **Environment variable:** `VITE_API_BASE_URL` with your backend URL  
-     (for example `https://fullstack-project2-uves.onrender.com/api`).
+I will add video link here
 
-5. Save and let Render build and deploy the site.
+🧩 Reflection
 
-Remember to keep database secrets only in the **backend** `.env`, not here.
+During this project, I learned how to build a frontend using React that communicates with my backend through API requests. I practiced using state, handling side effects with useEffect, working with forms, and updating UI dynamically when the data changes.
 
----
+I also learned how to handle CORS issues, how to use environment variables in the frontend, and how to deploy a React Vite app on Render. Fixing errors and checking browser console helped me understand debugging workflows better.
 
-## 4. What you can show in the video
+There were some small challenges when connecting to my deployed backend, but by reading logs and testing step-by-step, I solved the issues and learned a lot about real-world development.
 
-In your Project 3 video you can:
+Overall, I feel that this project improved my understanding of how frontend and backend work together in full-stack applications. I am happy that everything is deployed and working online. This project increased my confidence and gives me a strong foundation for future web development.
 
-- Show how the app loads items from your Project 2 API.
-- Show search and filter.
-- Add a new item.
-- Edit an item in the modal.
-- Mark an item as done.
-- Delete an item.
-- Show the Stats page (counts of done / not done).
-- Quickly explain the file structure and environment variable.
+🔐 Environment Variables & Security Notes
 
-This should cover React + API + CRUD + routing + documentation nicely.
+✔ Frontend does not expose private database secrets
+✔ Backend credentials remain only in Render .env
+✔ Only public API base URL is used in React
