@@ -17,7 +17,7 @@ The goal was to build a React frontend for my existing Project 2 backend using:
 |  Live App (Render – React) | https://fullstack-project3-react.onrender.com/ |
 |  Backend API (Render) | https://fullstack-project2-uves.onrender.com/api/items |
 |  GitHub Repository | https://github.com/AstritPopova/fullstack-project3-react |
-|  Video link | *Add video link here* |
+|  Video link | https://video.laurea.fi/media/Fullstack+project+3/0_h0ysmnlx |
 
 ---
 
